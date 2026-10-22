@@ -1,0 +1,846 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08BED3990F49455562CE275F /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908313FA03C9B6FFB5B4C5C9 /* PermissionService.swift */; };
+		0C78978077FF19019BDE82C9 /* Fixtures in Resources */ = {isa = PBXBuildFile; fileRef = 58877AB0E9722D7ADF875D0B /* Fixtures */; };
+		0D79E19F7EEE345C4FC68A48 /* PackRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABA697FF02A2F87BE197C3 /* PackRepository.swift */; };
+		21335133440B33D9E03A7BB8 /* AboutPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEBE72A0C4ABCEEB7B29F4 /* AboutPage.swift */; };
+		21AE9CCA0EC08C23F21FD258 /* ImportServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144F74323E8D7284F4CE3B4 /* ImportServiceTests.swift */; };
+		280547E940255752B1D9CF5F /* LegacyPackImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691CA1300738976DC1A72DF /* LegacyPackImporter.swift */; };
+		3184FF76FC990B18F49FB113 /* PermissionsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A021BA4D12E20B92813200B /* PermissionsPage.swift */; };
+		35E4A1A95A1BE75D99294DB2 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCD3C913C66F2F6081298D /* CoordinatorTests.swift */; };
+		3D20F7A2F17F80D3974C3F72 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA8CE036443CB0C556DFAA /* SettingsTests.swift */; };
+		44268059245E143BDE9E12DC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E9A4C4EBBDCD3C71644531 /* RootView.swift */; };
+		44A3859A2B2212D3A435CEDB /* HapticsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B50C2A23183371C6AFB13B /* HapticsPage.swift */; };
+		462F510B6320399D13BEC52F /* SafePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF079E1147534918837E2E /* SafePath.swift */; };
+		4706370D7221E549DC325D76 /* FeedbackCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D5AA71D9B72CBE086D3D17 /* FeedbackCoordinator.swift */; };
+		4AC389738277A338C677CE0D /* TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C5E1BFA4AD1A802A2D7322 /* TestSupport.swift */; };
+		53FB7B49BDE4DA694A50E577 /* TrackpadPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1349D4B88C8B2481809F04D4 /* TrackpadPage.swift */; };
+		60767C12809D7EDEFC10269B /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78BC8E3150737A7052826F4 /* AppSettings.swift */; };
+		658F369BEB5AE06C73B7D2AD /* BuiltInPacks in Resources */ = {isa = PBXBuildFile; fileRef = 646CFA2B2508DF5656FD40B9 /* BuiltInPacks */; };
+		65F84103EEBCC5359386878D /* KeyboardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E503CFCF4649E6575D4A730 /* KeyboardPage.swift */; };
+		68E17C60951277D7DB60833E /* KeyCodeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED10EC28A03B1FB306E1A04F /* KeyCodeMap.swift */; };
+		6B456945FD53E1BBF942A803 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A76DE60679F547F8F923AB /* AudioEngine.swift */; };
+		70AF24CB6EF0978083AE92B8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD4FF77CA46481004E6404F /* Theme.swift */; };
+		73AC697CA9878A3C58C97138 /* InputMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F1D0E4E413AB2E92DEE92 /* InputMonitor.swift */; };
+		792C41BD618FCAECA90C8CB3 /* Fixtures in Resources */ = {isa = PBXBuildFile; fileRef = 60D51DA56A011AEF66A8516E /* Fixtures */; };
+		79EFC37C7A997D646C32074E /* PackValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AAB2C56EF82DE3FBBE054B /* PackValidationTests.swift */; };
+		7F43FEE33766B0F0285BFA37 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556A0593469C7AA521F13619 /* RepositoryTests.swift */; };
+		819D1890359ACB58715A9B99 /* AudioEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC718B00DFEAB595659D6978 /* AudioEngineTests.swift */; };
+		844F8B475C0735CC69E223E5 /* LegacyPackImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050B548E64600C73499AECD /* LegacyPackImporterTests.swift */; };
+		888CBF13AE9953DF366FA2CC /* BuiltInPackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3D7BDCF5E92E36A16D54FC /* BuiltInPackTests.swift */; };
+		8A1590EBD061E692627C9F7E /* SoundPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71621E39A3C48E533AD315 /* SoundPack.swift */; };
+		8F49A6AC52C0FB200BDDBF02 /* PackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF41EAED7449D00F8AEC4B6 /* PackCard.swift */; };
+		9218E2487D18838A3995F3F7 /* AudioDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F40AF1505BED04EB9A9268 /* AudioDecoder.swift */; };
+		99B82217C3E6C791ED33304A /* OverviewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782FFCA677487CA84402E121 /* OverviewPage.swift */; };
+		9BD32474053C43C3FA766DB6 /* SoundPacksPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197C5EC3E939E76F72AF369 /* SoundPacksPage.swift */; };
+		9DF49F9E52B07CF1D3F491F2 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7C85D762C407664793B5D7 /* SettingsStore.swift */; };
+		A93B20236C36937F11B9017A /* PackImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC6C2ED32E65948B0771B3 /* PackImportService.swift */; };
+		ABB06F0A04A04AB131908709 /* NavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865BBB79B5E21986AF099D25 /* NavigationTests.swift */; };
+		AD2F3A717962E68A04BBD232 /* InputEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC686886BD2F70BED3C1EE69 /* InputEvent.swift */; };
+		B13A277450B76CAEF861E7C2 /* TrackpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E73337F6F141620912D4DFD /* TrackpadView.swift */; };
+		B3F20F0879C481EEEE7541DE /* AppPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5A4DED53EB218E1F1FADE /* AppPaths.swift */; };
+		B7371257519490D0BC5446D7 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24EC04E5163B9CDDF52DB6E /* AppModel.swift */; };
+		B90FC77B32F9A68151FB580C /* HapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E536FA91D543B3CF85273D /* HapticEngine.swift */; };
+		B98D8946066D9A216F48FDE2 /* CapabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7621BFAE72C983528DA000A4 /* CapabilityService.swift */; };
+		BBF56F9D3773991BE39AF288 /* ProfilesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAA294CA27A16DAFC2372F /* ProfilesPage.swift */; };
+		BE2CF22CBC1A6B058A732BF7 /* AdvancedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CA6A3FB44C51849744B84E /* AdvancedPage.swift */; };
+		D4B8B743BAE8BD90A8599E2D /* TactileMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456465B5B5E5F31B39FEB739 /* TactileMacApp.swift */; };
+		DAE39EE1D0CC79D040D4FE74 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331AAAFAB8895D03FC6238A /* KeyboardView.swift */; };
+		DFFB68339A5E8A4ECCC882C1 /* PackValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA29CBC2C8DF941B2B474619 /* PackValidator.swift */; };
+		EA1BFF4282D6CDE1BD7F4E8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749F3003CED0C66E899EB567 /* Assets.xcassets */; };
+		F05AEC815911D511719064D2 /* LegacyKeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8B8388CC9BE1B16732527 /* LegacyKeyMap.swift */; };
+		F446BD3246F54B865C2FE1EF /* SmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1928F49BA8F4AE819E649BD /* SmokeTests.swift */; };
+		F671A8241C4644D08303D929 /* AudioDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F684E4A008F625A75347164A /* AudioDecodeTests.swift */; };
+		F7ECC04363B89D9895D40203 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1E4275E10FF348620BCE5 /* MenuBarView.swift */; };
+		FBCDB63093559E04709D43F1 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534C8E09A5FB873FDE5A70C /* SidebarView.swift */; };
+		FCD17AAC542789E37E9FD91A /* KeyMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81859B8497C4CB8B2C24E67 /* KeyMappingTests.swift */; };
+		FFD0B747680BB01A0323C2E0 /* Notices in Resources */ = {isa = PBXBuildFile; fileRef = D5A7E807A777CD3DA3A09B2E /* Notices */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4F5FC61482F47E4ADB67C866 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7CECE8576F8AFDAC1C99695 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7C7D6E35905AAE82AF569E6;
+			remoteInfo = TactileMac;
+		};
+		D03530C6F7FF75D7656C64C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7CECE8576F8AFDAC1C99695 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7C7D6E35905AAE82AF569E6;
+			remoteInfo = TactileMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08B8B8388CC9BE1B16732527 /* LegacyKeyMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyKeyMap.swift; sourceTree = "<group>"; };
+		0AC5A4DED53EB218E1F1FADE /* AppPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPaths.swift; sourceTree = "<group>"; };
+		0C71621E39A3C48E533AD315 /* SoundPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPack.swift; sourceTree = "<group>"; };
+		0EABA697FF02A2F87BE197C3 /* PackRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackRepository.swift; sourceTree = "<group>"; };
+		0EEF079E1147534918837E2E /* SafePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafePath.swift; sourceTree = "<group>"; };
+		1349D4B88C8B2481809F04D4 /* TrackpadPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadPage.swift; sourceTree = "<group>"; };
+		15EAA294CA27A16DAFC2372F /* ProfilesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesPage.swift; sourceTree = "<group>"; };
+		17C5E1BFA4AD1A802A2D7322 /* TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSupport.swift; sourceTree = "<group>"; };
+		1DD4FF77CA46481004E6404F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2331AAAFAB8895D03FC6238A /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		2534C8E09A5FB873FDE5A70C /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		37A76DE60679F547F8F923AB /* AudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
+		39E9A4C4EBBDCD3C71644531 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		3FBA8CE036443CB0C556DFAA /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		456465B5B5E5F31B39FEB739 /* TactileMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TactileMacApp.swift; sourceTree = "<group>"; };
+		50F40AF1505BED04EB9A9268 /* AudioDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDecoder.swift; sourceTree = "<group>"; };
+		556A0593469C7AA521F13619 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
+		58877AB0E9722D7ADF875D0B /* Fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fixtures; path = TactileMacUITests/Fixtures; sourceTree = SOURCE_ROOT; };
+		60D51DA56A011AEF66A8516E /* Fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fixtures; path = TactileMacTests/Fixtures; sourceTree = SOURCE_ROOT; };
+		63AAB2C56EF82DE3FBBE054B /* PackValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackValidationTests.swift; sourceTree = "<group>"; };
+		646CFA2B2508DF5656FD40B9 /* BuiltInPacks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BuiltInPacks; path = TactileMac/Resources/BuiltInPacks; sourceTree = SOURCE_ROOT; };
+		6E73337F6F141620912D4DFD /* TrackpadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadView.swift; sourceTree = "<group>"; };
+		73D5AA71D9B72CBE086D3D17 /* FeedbackCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackCoordinator.swift; sourceTree = "<group>"; };
+		749F3003CED0C66E899EB567 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7621BFAE72C983528DA000A4 /* CapabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapabilityService.swift; sourceTree = "<group>"; };
+		782FFCA677487CA84402E121 /* OverviewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPage.swift; sourceTree = "<group>"; };
+		7A021BA4D12E20B92813200B /* PermissionsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsPage.swift; sourceTree = "<group>"; };
+		7C7C85D762C407664793B5D7 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		7E503CFCF4649E6575D4A730 /* KeyboardPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPage.swift; sourceTree = "<group>"; };
+		865BBB79B5E21986AF099D25 /* NavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTests.swift; sourceTree = "<group>"; };
+		89E536FA91D543B3CF85273D /* HapticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticEngine.swift; sourceTree = "<group>"; };
+		8AD902FF64DFF0ECAE355A9E /* TactileMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TactileMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BDEBE72A0C4ABCEEB7B29F4 /* AboutPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPage.swift; sourceTree = "<group>"; };
+		908313FA03C9B6FFB5B4C5C9 /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
+		A1928F49BA8F4AE819E649BD /* SmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTests.swift; sourceTree = "<group>"; };
+		A24EC04E5163B9CDDF52DB6E /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		A2CA6A3FB44C51849744B84E /* AdvancedPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedPage.swift; sourceTree = "<group>"; };
+		A78BC8E3150737A7052826F4 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		AEF41EAED7449D00F8AEC4B6 /* PackCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackCard.swift; sourceTree = "<group>"; };
+		B050B548E64600C73499AECD /* LegacyPackImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyPackImporterTests.swift; sourceTree = "<group>"; };
+		B1B50C2A23183371C6AFB13B /* HapticsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsPage.swift; sourceTree = "<group>"; };
+		B2FEB45D72C73FDB8CABB0A6 /* TactileMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TactileMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B81859B8497C4CB8B2C24E67 /* KeyMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyMappingTests.swift; sourceTree = "<group>"; };
+		BA29CBC2C8DF941B2B474619 /* PackValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackValidator.swift; sourceTree = "<group>"; };
+		C197C5EC3E939E76F72AF369 /* SoundPacksPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPacksPage.swift; sourceTree = "<group>"; };
+		C23A035DBF31B678E1FABB21 /* TactileMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TactileMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC718B00DFEAB595659D6978 /* AudioEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngineTests.swift; sourceTree = "<group>"; };
+		D5A7E807A777CD3DA3A09B2E /* Notices */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Notices; path = TactileMac/Resources/Notices; sourceTree = SOURCE_ROOT; };
+		D691CA1300738976DC1A72DF /* LegacyPackImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyPackImporter.swift; sourceTree = "<group>"; };
+		DB3D7BDCF5E92E36A16D54FC /* BuiltInPackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuiltInPackTests.swift; sourceTree = "<group>"; };
+		DC686886BD2F70BED3C1EE69 /* InputEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputEvent.swift; sourceTree = "<group>"; };
+		DF1F1D0E4E413AB2E92DEE92 /* InputMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMonitor.swift; sourceTree = "<group>"; };
+		E0BCD3C913C66F2F6081298D /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
+		E6DC6C2ED32E65948B0771B3 /* PackImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackImportService.swift; sourceTree = "<group>"; };
+		EAC1E4275E10FF348620BCE5 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		ED10EC28A03B1FB306E1A04F /* KeyCodeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCodeMap.swift; sourceTree = "<group>"; };
+		F144F74323E8D7284F4CE3B4 /* ImportServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportServiceTests.swift; sourceTree = "<group>"; };
+		F684E4A008F625A75347164A /* AudioDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDecodeTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		286CB19B13C32411A87311E7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A78BC8E3150737A7052826F4 /* AppSettings.swift */,
+				DC686886BD2F70BED3C1EE69 /* InputEvent.swift */,
+				ED10EC28A03B1FB306E1A04F /* KeyCodeMap.swift */,
+				0C71621E39A3C48E533AD315 /* SoundPack.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		29D954922CA3C2DFBEF54DBE /* SoundPacks */ = {
+			isa = PBXGroup;
+			children = (
+				08B8B8388CC9BE1B16732527 /* LegacyKeyMap.swift */,
+				D691CA1300738976DC1A72DF /* LegacyPackImporter.swift */,
+				E6DC6C2ED32E65948B0771B3 /* PackImportService.swift */,
+				0EABA697FF02A2F87BE197C3 /* PackRepository.swift */,
+				BA29CBC2C8DF941B2B474619 /* PackValidator.swift */,
+				0EEF079E1147534918837E2E /* SafePath.swift */,
+			);
+			path = SoundPacks;
+			sourceTree = "<group>";
+		};
+		4D0A810795C2E4A810DE4F9B /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				DF1F1D0E4E413AB2E92DEE92 /* InputMonitor.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		641EABEA649CF547EBDB1C0A /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				8BDEBE72A0C4ABCEEB7B29F4 /* AboutPage.swift */,
+				A2CA6A3FB44C51849744B84E /* AdvancedPage.swift */,
+				B1B50C2A23183371C6AFB13B /* HapticsPage.swift */,
+				7E503CFCF4649E6575D4A730 /* KeyboardPage.swift */,
+				782FFCA677487CA84402E121 /* OverviewPage.swift */,
+				7A021BA4D12E20B92813200B /* PermissionsPage.swift */,
+				15EAA294CA27A16DAFC2372F /* ProfilesPage.swift */,
+				C197C5EC3E939E76F72AF369 /* SoundPacksPage.swift */,
+				1349D4B88C8B2481809F04D4 /* TrackpadPage.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		6EDF8EB1F401ED6836E66D42 /* Haptics */ = {
+			isa = PBXGroup;
+			children = (
+				89E536FA91D543B3CF85273D /* HapticEngine.swift */,
+			);
+			path = Haptics;
+			sourceTree = "<group>";
+		};
+		7055EC8F9A70CA3EF55D9629 /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				908313FA03C9B6FFB5B4C5C9 /* PermissionService.swift */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
+		73336C211DDFBD3C0A99725D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				641EABEA649CF547EBDB1C0A /* Pages */,
+				2331AAAFAB8895D03FC6238A /* KeyboardView.swift */,
+				EAC1E4275E10FF348620BCE5 /* MenuBarView.swift */,
+				AEF41EAED7449D00F8AEC4B6 /* PackCard.swift */,
+				39E9A4C4EBBDCD3C71644531 /* RootView.swift */,
+				2534C8E09A5FB873FDE5A70C /* SidebarView.swift */,
+				1DD4FF77CA46481004E6404F /* Theme.swift */,
+				6E73337F6F141620912D4DFD /* TrackpadView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		775DB64F861A80007DE596F4 /* TactileMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				F684E4A008F625A75347164A /* AudioDecodeTests.swift */,
+				CC718B00DFEAB595659D6978 /* AudioEngineTests.swift */,
+				DB3D7BDCF5E92E36A16D54FC /* BuiltInPackTests.swift */,
+				E0BCD3C913C66F2F6081298D /* CoordinatorTests.swift */,
+				60D51DA56A011AEF66A8516E /* Fixtures */,
+				F144F74323E8D7284F4CE3B4 /* ImportServiceTests.swift */,
+				B81859B8497C4CB8B2C24E67 /* KeyMappingTests.swift */,
+				B050B548E64600C73499AECD /* LegacyPackImporterTests.swift */,
+				63AAB2C56EF82DE3FBBE054B /* PackValidationTests.swift */,
+				556A0593469C7AA521F13619 /* RepositoryTests.swift */,
+				3FBA8CE036443CB0C556DFAA /* SettingsTests.swift */,
+				A1928F49BA8F4AE819E649BD /* SmokeTests.swift */,
+				17C5E1BFA4AD1A802A2D7322 /* TestSupport.swift */,
+			);
+			path = TactileMacTests;
+			sourceTree = "<group>";
+		};
+		8BBA64F50963C8E7A2E81779 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				50F40AF1505BED04EB9A9268 /* AudioDecoder.swift */,
+				37A76DE60679F547F8F923AB /* AudioEngine.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		A2DEFD3E39BB80D271291D12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2FEB45D72C73FDB8CABB0A6 /* TactileMac.app */,
+				8AD902FF64DFF0ECAE355A9E /* TactileMacTests.xctest */,
+				C23A035DBF31B678E1FABB21 /* TactileMacUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B437179ADE7497191C8D4DD2 = {
+			isa = PBXGroup;
+			children = (
+				D6D97029941054D8D29F7AB0 /* TactileMac */,
+				775DB64F861A80007DE596F4 /* TactileMacTests */,
+				D55D34FE8235561A30CEAD83 /* TactileMacUITests */,
+				A2DEFD3E39BB80D271291D12 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BDDA73A14702702834B71B43 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A24EC04E5163B9CDDF52DB6E /* AppModel.swift */,
+				0AC5A4DED53EB218E1F1FADE /* AppPaths.swift */,
+				456465B5B5E5F31B39FEB739 /* TactileMacApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C3FCF56C76E4B546BEA724BE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				749F3003CED0C66E899EB567 /* Assets.xcassets */,
+				646CFA2B2508DF5656FD40B9 /* BuiltInPacks */,
+				D5A7E807A777CD3DA3A09B2E /* Notices */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D55D34FE8235561A30CEAD83 /* TactileMacUITests */ = {
+			isa = PBXGroup;
+			children = (
+				58877AB0E9722D7ADF875D0B /* Fixtures */,
+				865BBB79B5E21986AF099D25 /* NavigationTests.swift */,
+			);
+			path = TactileMacUITests;
+			sourceTree = "<group>";
+		};
+		D6D97029941054D8D29F7AB0 /* TactileMac */ = {
+			isa = PBXGroup;
+			children = (
+				BDDA73A14702702834B71B43 /* App */,
+				8BBA64F50963C8E7A2E81779 /* Audio */,
+				6EDF8EB1F401ED6836E66D42 /* Haptics */,
+				4D0A810795C2E4A810DE4F9B /* Input */,
+				286CB19B13C32411A87311E7 /* Models */,
+				7055EC8F9A70CA3EF55D9629 /* Permissions */,
+				C3FCF56C76E4B546BEA724BE /* Resources */,
+				F49BA71E8AD6BC05392F346F /* Services */,
+				29D954922CA3C2DFBEF54DBE /* SoundPacks */,
+				73336C211DDFBD3C0A99725D /* UI */,
+			);
+			path = TactileMac;
+			sourceTree = "<group>";
+		};
+		F49BA71E8AD6BC05392F346F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7621BFAE72C983528DA000A4 /* CapabilityService.swift */,
+				73D5AA71D9B72CBE086D3D17 /* FeedbackCoordinator.swift */,
+				7C7C85D762C407664793B5D7 /* SettingsStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7C7D6E35905AAE82AF569E6 /* TactileMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 863CD181F188FA14EA60909E /* Build configuration list for PBXNativeTarget "TactileMac" */;
+			buildPhases = (
+				B81FEB0C895D571F29E634B4 /* Sources */,
+				27F5DCC0DCCF41ACBF583951 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TactileMac;
+			packageProductDependencies = (
+			);
+			productName = TactileMac;
+			productReference = B2FEB45D72C73FDB8CABB0A6 /* TactileMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C7FC52F484BE96FC51146F44 /* TactileMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23297D2EFA701CECF9B899D7 /* Build configuration list for PBXNativeTarget "TactileMacTests" */;
+			buildPhases = (
+				B8554C065758BF64EF1E4BC2 /* Sources */,
+				DE49C039D3710CEEB9588C20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E632D0519B65005CFDE195F /* PBXTargetDependency */,
+			);
+			name = TactileMacTests;
+			packageProductDependencies = (
+			);
+			productName = TactileMacTests;
+			productReference = 8AD902FF64DFF0ECAE355A9E /* TactileMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F7121D01A4F72C8F4124A6AB /* TactileMacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E157C471D00C66165B1DC125 /* Build configuration list for PBXNativeTarget "TactileMacUITests" */;
+			buildPhases = (
+				15FD5E105F51CC8B9BDEC505 /* Sources */,
+				252EC30FA7F2EE90A82C0D24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE98F571315B8B382D47DAF0 /* PBXTargetDependency */,
+			);
+			name = TactileMacUITests;
+			packageProductDependencies = (
+			);
+			productName = TactileMacUITests;
+			productReference = C23A035DBF31B678E1FABB21 /* TactileMacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7CECE8576F8AFDAC1C99695 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					C7C7D6E35905AAE82AF569E6 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					C7FC52F484BE96FC51146F44 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					F7121D01A4F72C8F4124A6AB = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+						TestTargetID = C7C7D6E35905AAE82AF569E6;
+					};
+				};
+			};
+			buildConfigurationList = 649CA913F19B96C7251889B6 /* Build configuration list for PBXProject "TactileMac" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = B437179ADE7497191C8D4DD2;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A2DEFD3E39BB80D271291D12 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7C7D6E35905AAE82AF569E6 /* TactileMac */,
+				C7FC52F484BE96FC51146F44 /* TactileMacTests */,
+				F7121D01A4F72C8F4124A6AB /* TactileMacUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		252EC30FA7F2EE90A82C0D24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C78978077FF19019BDE82C9 /* Fixtures in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27F5DCC0DCCF41ACBF583951 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA1BFF4282D6CDE1BD7F4E8E /* Assets.xcassets in Resources */,
+				658F369BEB5AE06C73B7D2AD /* BuiltInPacks in Resources */,
+				FFD0B747680BB01A0323C2E0 /* Notices in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE49C039D3710CEEB9588C20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				792C41BD618FCAECA90C8CB3 /* Fixtures in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		15FD5E105F51CC8B9BDEC505 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB06F0A04A04AB131908709 /* NavigationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B81FEB0C895D571F29E634B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21335133440B33D9E03A7BB8 /* AboutPage.swift in Sources */,
+				BE2CF22CBC1A6B058A732BF7 /* AdvancedPage.swift in Sources */,
+				B7371257519490D0BC5446D7 /* AppModel.swift in Sources */,
+				B3F20F0879C481EEEE7541DE /* AppPaths.swift in Sources */,
+				60767C12809D7EDEFC10269B /* AppSettings.swift in Sources */,
+				9218E2487D18838A3995F3F7 /* AudioDecoder.swift in Sources */,
+				6B456945FD53E1BBF942A803 /* AudioEngine.swift in Sources */,
+				B98D8946066D9A216F48FDE2 /* CapabilityService.swift in Sources */,
+				4706370D7221E549DC325D76 /* FeedbackCoordinator.swift in Sources */,
+				B90FC77B32F9A68151FB580C /* HapticEngine.swift in Sources */,
+				44A3859A2B2212D3A435CEDB /* HapticsPage.swift in Sources */,
+				AD2F3A717962E68A04BBD232 /* InputEvent.swift in Sources */,
+				73AC697CA9878A3C58C97138 /* InputMonitor.swift in Sources */,
+				68E17C60951277D7DB60833E /* KeyCodeMap.swift in Sources */,
+				65F84103EEBCC5359386878D /* KeyboardPage.swift in Sources */,
+				DAE39EE1D0CC79D040D4FE74 /* KeyboardView.swift in Sources */,
+				F05AEC815911D511719064D2 /* LegacyKeyMap.swift in Sources */,
+				280547E940255752B1D9CF5F /* LegacyPackImporter.swift in Sources */,
+				F7ECC04363B89D9895D40203 /* MenuBarView.swift in Sources */,
+				99B82217C3E6C791ED33304A /* OverviewPage.swift in Sources */,
+				8F49A6AC52C0FB200BDDBF02 /* PackCard.swift in Sources */,
+				A93B20236C36937F11B9017A /* PackImportService.swift in Sources */,
+				0D79E19F7EEE345C4FC68A48 /* PackRepository.swift in Sources */,
+				DFFB68339A5E8A4ECCC882C1 /* PackValidator.swift in Sources */,
+				08BED3990F49455562CE275F /* PermissionService.swift in Sources */,
+				3184FF76FC990B18F49FB113 /* PermissionsPage.swift in Sources */,
+				BBF56F9D3773991BE39AF288 /* ProfilesPage.swift in Sources */,
+				44268059245E143BDE9E12DC /* RootView.swift in Sources */,
+				462F510B6320399D13BEC52F /* SafePath.swift in Sources */,
+				9DF49F9E52B07CF1D3F491F2 /* SettingsStore.swift in Sources */,
+				FBCDB63093559E04709D43F1 /* SidebarView.swift in Sources */,
+				8A1590EBD061E692627C9F7E /* SoundPack.swift in Sources */,
+				9BD32474053C43C3FA766DB6 /* SoundPacksPage.swift in Sources */,
+				D4B8B743BAE8BD90A8599E2D /* TactileMacApp.swift in Sources */,
+				70AF24CB6EF0978083AE92B8 /* Theme.swift in Sources */,
+				53FB7B49BDE4DA694A50E577 /* TrackpadPage.swift in Sources */,
+				B13A277450B76CAEF861E7C2 /* TrackpadView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8554C065758BF64EF1E4BC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F671A8241C4644D08303D929 /* AudioDecodeTests.swift in Sources */,
+				819D1890359ACB58715A9B99 /* AudioEngineTests.swift in Sources */,
+				888CBF13AE9953DF366FA2CC /* BuiltInPackTests.swift in Sources */,
+				35E4A1A95A1BE75D99294DB2 /* CoordinatorTests.swift in Sources */,
+				21AE9CCA0EC08C23F21FD258 /* ImportServiceTests.swift in Sources */,
+				FCD17AAC542789E37E9FD91A /* KeyMappingTests.swift in Sources */,
+				844F8B475C0735CC69E223E5 /* LegacyPackImporterTests.swift in Sources */,
+				79EFC37C7A997D646C32074E /* PackValidationTests.swift in Sources */,
+				7F43FEE33766B0F0285BFA37 /* RepositoryTests.swift in Sources */,
+				3D20F7A2F17F80D3974C3F72 /* SettingsTests.swift in Sources */,
+				F446BD3246F54B865C2FE1EF /* SmokeTests.swift in Sources */,
+				4AC389738277A338C677CE0D /* TestSupport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E632D0519B65005CFDE195F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7C7D6E35905AAE82AF569E6 /* TactileMac */;
+			targetProxy = 4F5FC61482F47E4ADB67C866 /* PBXContainerItemProxy */;
+		};
+		BE98F571315B8B382D47DAF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7C7D6E35905AAE82AF569E6 /* TactileMac */;
+			targetProxy = D03530C6F7FF75D7656C64C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2E422EA88E0433DC5B92DECD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tactilemac.app.tests;
+				PRODUCT_MODULE_NAME = TactileMacTests;
+				PRODUCT_NAME = TactileMacTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TactileMac.app/Contents/MacOS/TactileMac";
+			};
+			name = Release;
+		};
+		5B90EDE286B62FC0F276D26E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TactileMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tactilemac.app;
+				SDKROOT = macosx;
+				SUPPORTS_MACCATALYST = NO;
+			};
+			name = Release;
+		};
+		68AB190590C33D344BB009A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tactilemac.app.uitests;
+				PRODUCT_MODULE_NAME = TactileMacUITests;
+				PRODUCT_NAME = TactileMacUITests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = TactileMac;
+			};
+			name = Release;
+		};
+		6ED983A895B726890AD07162 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = TactileMac;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7E1ED9872FE0EDCB01E68B95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = TactileMac;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8616F642D64CE892485260FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tactilemac.app.uitests;
+				PRODUCT_MODULE_NAME = TactileMacUITests;
+				PRODUCT_NAME = TactileMacUITests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = TactileMac;
+			};
+			name = Debug;
+		};
+		9D2E6FA45462B90E1180EE34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tactilemac.app.tests;
+				PRODUCT_MODULE_NAME = TactileMacTests;
+				PRODUCT_NAME = TactileMacTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TactileMac.app/Contents/MacOS/TactileMac";
+			};
+			name = Debug;
+		};
+		C2C7A24278613FF326F2BF53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TactileMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tactilemac.app;
+				SDKROOT = macosx;
+				SUPPORTS_MACCATALYST = NO;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23297D2EFA701CECF9B899D7 /* Build configuration list for PBXNativeTarget "TactileMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D2E6FA45462B90E1180EE34 /* Debug */,
+				2E422EA88E0433DC5B92DECD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		649CA913F19B96C7251889B6 /* Build configuration list for PBXProject "TactileMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E1ED9872FE0EDCB01E68B95 /* Debug */,
+				6ED983A895B726890AD07162 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		863CD181F188FA14EA60909E /* Build configuration list for PBXNativeTarget "TactileMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2C7A24278613FF326F2BF53 /* Debug */,
+				5B90EDE286B62FC0F276D26E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E157C471D00C66165B1DC125 /* Build configuration list for PBXNativeTarget "TactileMacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8616F642D64CE892485260FE /* Debug */,
+				68AB190590C33D344BB009A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7CECE8576F8AFDAC1C99695 /* Project object */;
+}

@@ -1,0 +1,11 @@
+build/
+.refs/
+/*.dmg
+.commandcode/
+.build/
+dist/
+DerivedData/
+*.xcuserstate
+**/xcuserdata/
+*.xcresult
+.DS_Store

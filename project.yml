@@ -1,0 +1,131 @@
+name: TactileMac
+options:
+  bundleIdPrefix: com.tactilemac
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: minimal
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    CLANG_ENABLE_MODULES: YES
+    ENABLE_HARDENED_RUNTIME: NO
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"
+    DEVELOPMENT_TEAM: ""
+    PRODUCT_NAME: TactileMac
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  TactileMac:
+    type: application
+    platform: macOS
+    sources:
+      - path: TactileMac
+        excludes:
+          - "Info.plist"
+          - "Resources/BuiltInPacks"
+          - "Resources/Notices"
+      - path: TactileMac/Resources/BuiltInPacks
+        type: folder
+        buildPhase: resources
+      - path: TactileMac/Resources/Notices
+        type: folder
+        buildPhase: resources
+    info:
+      path: TactileMac/Info.plist
+      properties:
+        CFBundleDisplayName: TactileMac
+        CFBundleName: TactileMac
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        LSApplicationCategoryType: public.app-category.utilities
+        LSMinimumSystemVersion: "$(MACOSX_DEPLOYMENT_TARGET)"
+        NSHighResolutionCapable: true
+        NSHumanReadableCopyright: "Copyright © 2026 TactileMac contributors. MIT licensed."
+        NSSupportsAutomaticGraphicsSwitching: true
+        ITSAppUsesNonExemptEncryption: false
+        NSPrincipalClass: NSApplication
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.tactilemac.app
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: TactileMac/Info.plist
+        COMBINE_HIDPI_IMAGES: YES
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_HARDENED_RUNTIME: YES
+        SUPPORTS_MACCATALYST: NO
+      configs:
+        Debug:
+          ENABLE_HARDENED_RUNTIME: NO
+        Release:
+          ENABLE_HARDENED_RUNTIME: YES
+    dependencies: []
+  TactileMacTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: TactileMacTests
+        excludes:
+          - "Fixtures"
+      - path: TactileMacTests/Fixtures
+        type: folder
+        buildPhase: resources
+    dependencies:
+      - target: TactileMac
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.tactilemac.app.tests
+        PRODUCT_NAME: TactileMacTests
+        PRODUCT_MODULE_NAME: TactileMacTests
+        GENERATE_INFOPLIST_FILE: YES
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/TactileMac.app/Contents/MacOS/TactileMac"
+        CODE_SIGN_IDENTITY: "-"
+  TactileMacUITests:
+    type: bundle.ui-testing
+    platform: macOS
+    sources:
+      - path: TactileMacUITests
+        excludes:
+          - "Fixtures"
+      - path: TactileMacUITests/Fixtures
+        type: folder
+        buildPhase: resources
+    dependencies:
+      - target: TactileMac
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.tactilemac.app.uitests
+        PRODUCT_NAME: TactileMacUITests
+        PRODUCT_MODULE_NAME: TactileMacUITests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: TactileMac
+        CODE_SIGN_IDENTITY: "-"
+schemes:
+  TactileMac:
+    build:
+      targets:
+        TactileMac: all
+        TactileMacTests: [test]
+        TactileMacUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: false
+      targets:
+        - name: TactileMacTests
+          parallelizable: false
+        - name: TactileMacUITests
+          parallelizable: false
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
