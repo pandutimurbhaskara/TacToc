@@ -1,0 +1,14 @@
+{
+  "schema": "tactilemac.pack",
+  "schemaVersion": 1,
+  "id": "fixture-missing",
+  "name": "Missing",
+  "author": "Tests",
+  "events": {
+    "key.down.default": [
+      {
+        "file": "missing.wav"
+      }
+    ]
+  }
+}

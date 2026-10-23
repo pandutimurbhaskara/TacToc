@@ -1,0 +1,23 @@
+{
+  "id": "fixture-v1-single",
+  "name": "Fixture V1 Single",
+  "key_define_type": "single",
+  "includes_numpad": false,
+  "sound": "tone.wav",
+  "defines": {
+    "30": [
+      0,
+      100
+    ],
+    "57": [
+      100,
+      100
+    ],
+    "14": [
+      200,
+      100
+    ],
+    "28": null
+  },
+  "version": 1
+}

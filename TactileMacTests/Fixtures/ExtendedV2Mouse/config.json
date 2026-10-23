@@ -1,0 +1,33 @@
+{
+  "config_version": 2,
+  "name": "Fixture Extended V2 Mouse",
+  "author": "TactileMac Tests",
+  "definition_method": "single",
+  "audio_file": "mouse.wav",
+  "definitions": {
+    "MouseLeft": {
+      "timing": [
+        [
+          0,
+          80
+        ]
+      ]
+    },
+    "MouseRight": {
+      "timing": [
+        [
+          80,
+          160
+        ]
+      ]
+    },
+    "WheelUp": {
+      "timing": [
+        [
+          160,
+          240
+        ]
+      ]
+    }
+  }
+}

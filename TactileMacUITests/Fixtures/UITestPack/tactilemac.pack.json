@@ -1,0 +1,20 @@
+{
+  "schema": "tactilemac.pack",
+  "schemaVersion": 1,
+  "id": "ui-test-pack",
+  "name": "UI Test Pack",
+  "author": "TactileMac Tests",
+  "license": "CC0-1.0",
+  "description": "Generated test fixture for the UI import flow.",
+  "events": {
+    "key.down.default": [
+      { "file": "sounds/click.wav" }
+    ],
+    "key.up.default": [
+      { "file": "sounds/click.wav" }
+    ],
+    "trackpad.click.left": [
+      { "file": "sounds/click.wav" }
+    ]
+  }
+}

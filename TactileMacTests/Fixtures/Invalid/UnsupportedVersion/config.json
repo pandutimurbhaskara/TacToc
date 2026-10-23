@@ -1,0 +1,15 @@
+{
+  "config_version": 3,
+  "name": "Future",
+  "author": "Tests",
+  "definitions": {
+    "KeyA": {
+      "timing": [
+        [
+          0,
+          50
+        ]
+      ]
+    }
+  }
+}

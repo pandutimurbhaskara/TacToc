@@ -1,0 +1,17 @@
+{
+  "id": "fixture-v2-single-up",
+  "name": "Fixture Legacy V2 Single",
+  "key_define_type": "single",
+  "sound": "tone.wav",
+  "defines": {
+    "30": [
+      0,
+      100
+    ],
+    "30-up": [
+      100,
+      100
+    ]
+  },
+  "version": 2
+}

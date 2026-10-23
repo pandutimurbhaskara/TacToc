@@ -1,0 +1,11 @@
+{
+  "id": "fixture-v2-range",
+  "name": "Fixture Legacy V2 Range",
+  "key_define_type": "multi",
+  "sound": "press/tick_{0-2}.wav",
+  "soundup": "release.wav",
+  "defines": {
+    "30": "press/tick_0.wav"
+  },
+  "version": 2
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "tactilemac.pack",
+  "schemaVersion": 1,
+  "id": "fixture-native",
+  "name": "Fixture Native",
+  "author": "TactileMac Tests",
+  "license": "CC0-1.0",
+  "events": {
+    "key.down.default": [
+      {
+        "file": "sounds/tone.wav"
+      }
+    ],
+    "key.up.default": [
+      {
+        "file": "sounds/release.wav"
+      }
+    ],
+    "trackpad.click.left": [
+      {
+        "file": "sounds/click-low.wav"
+      }
+    ],
+    "trackpad.scroll.up": [
+      {
+        "file": "sounds/click-high.wav"
+      }
+    ]
+  }
+}

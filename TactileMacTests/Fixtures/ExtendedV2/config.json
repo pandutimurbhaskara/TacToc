@@ -1,0 +1,45 @@
+{
+  "config_version": "2",
+  "id": "fixture-extended-v2",
+  "name": "Fixture Extended V2",
+  "author": "TactileMac Tests",
+  "definition_method": "single",
+  "audio_file": "sound.ogg",
+  "definitions": {
+    "KeyA": {
+      "timing": [
+        [
+          0.0,
+          100.0
+        ],
+        [
+          100.0,
+          180.0
+        ]
+      ]
+    },
+    "Space": {
+      "timing": [
+        [
+          180.0,
+          300.0
+        ]
+      ]
+    },
+    "MouseLeft": {
+      "timing": [
+        [
+          0.0,
+          50.0
+        ]
+      ]
+    }
+  },
+  "options": {
+    "recommended_volume": 0.9,
+    "random_pitch": true
+  },
+  "tags": [
+    "fixture"
+  ]
+}

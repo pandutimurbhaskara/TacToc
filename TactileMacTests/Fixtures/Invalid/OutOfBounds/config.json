@@ -1,0 +1,17 @@
+{
+  "config_version": "2",
+  "name": "Out of bounds",
+  "author": "Tests",
+  "definition_method": "single",
+  "audio_file": "tone.wav",
+  "definitions": {
+    "KeyA": {
+      "timing": [
+        [
+          900.0,
+          1000.0
+        ]
+      ]
+    }
+  }
+}

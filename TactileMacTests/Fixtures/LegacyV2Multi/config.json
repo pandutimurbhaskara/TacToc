@@ -1,0 +1,14 @@
+{
+  "id": "fixture-legacy-v2",
+  "name": "Fixture Legacy V2",
+  "key_define_type": "multi",
+  "sound": "fallback.wav",
+  "soundup": "release.wav",
+  "defines": {
+    "30": "a.wav",
+    "57": "space.wav",
+    "30-up": "a-up.wav",
+    "57-up": "space-up.wav"
+  },
+  "version": 2
+}

@@ -1,0 +1,12 @@
+{
+  "id": "fixture-v1-multi",
+  "name": "Fixture V1 Multi",
+  "key_define_type": "multi",
+  "includes_numpad": false,
+  "sound": "fallback.wav",
+  "defines": {
+    "30": "a.wav",
+    "57": "space.wav"
+  },
+  "version": 1
+}

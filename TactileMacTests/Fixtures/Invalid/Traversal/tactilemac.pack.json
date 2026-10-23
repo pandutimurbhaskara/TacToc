@@ -1,0 +1,14 @@
+{
+  "schema": "tactilemac.pack",
+  "schemaVersion": 1,
+  "id": "fixture-traversal",
+  "name": "Traversal",
+  "author": "Tests",
+  "events": {
+    "key.down.default": [
+      {
+        "file": "../outside.wav"
+      }
+    ]
+  }
+}
