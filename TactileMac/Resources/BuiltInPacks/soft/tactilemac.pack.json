@@ -1,0 +1,134 @@
+{
+  "author": "TactileMac",
+  "description": "Muted, low-volume thump for quiet rooms. Original synthesized recording.",
+  "events": {
+    "key.down.backspace": [
+      {
+        "file": "sounds/backspace_down.wav"
+      }
+    ],
+    "key.down.default": [
+      {
+        "file": "sounds/press_1.wav"
+      },
+      {
+        "file": "sounds/press_2.wav"
+      },
+      {
+        "file": "sounds/press_3.wav"
+      },
+      {
+        "file": "sounds/press_4.wav"
+      },
+      {
+        "file": "sounds/press_5.wav"
+      }
+    ],
+    "key.down.enter": [
+      {
+        "file": "sounds/enter_down.wav"
+      }
+    ],
+    "key.down.escape": [
+      {
+        "file": "sounds/escape_down.wav"
+      }
+    ],
+    "key.down.modifier": [
+      {
+        "file": "sounds/modifier_down.wav"
+      }
+    ],
+    "key.down.navigation": [
+      {
+        "file": "sounds/press_2.wav"
+      },
+      {
+        "file": "sounds/press_4.wav"
+      }
+    ],
+    "key.down.space": [
+      {
+        "file": "sounds/space_down.wav"
+      }
+    ],
+    "key.up.backspace": [
+      {
+        "file": "sounds/release_1.wav"
+      }
+    ],
+    "key.up.default": [
+      {
+        "file": "sounds/release_1.wav"
+      },
+      {
+        "file": "sounds/release_2.wav"
+      },
+      {
+        "file": "sounds/release_3.wav"
+      }
+    ],
+    "key.up.enter": [
+      {
+        "file": "sounds/release_2.wav"
+      }
+    ],
+    "key.up.modifier": [
+      {
+        "file": "sounds/release_3.wav"
+      }
+    ],
+    "key.up.space": [
+      {
+        "file": "sounds/release_1.wav"
+      },
+      {
+        "file": "sounds/release_2.wav"
+      }
+    ],
+    "trackpad.click.default": [
+      {
+        "file": "sounds/trackpad_click_1.wav"
+      },
+      {
+        "file": "sounds/trackpad_click_2.wav"
+      }
+    ],
+    "trackpad.click.left": [
+      {
+        "file": "sounds/trackpad_click_1.wav"
+      },
+      {
+        "file": "sounds/trackpad_click_2.wav"
+      }
+    ],
+    "trackpad.click.right": [
+      {
+        "file": "sounds/trackpad_click_right.wav"
+      }
+    ],
+    "trackpad.scroll.down": [
+      {
+        "file": "sounds/scroll_down_1.wav"
+      },
+      {
+        "file": "sounds/scroll_down_2.wav"
+      }
+    ],
+    "trackpad.scroll.up": [
+      {
+        "file": "sounds/scroll_up_1.wav"
+      },
+      {
+        "file": "sounds/scroll_up_2.wav"
+      }
+    ]
+  },
+  "id": "soft",
+  "license": "CC0-1.0",
+  "name": "Soft",
+  "pitchVariation": 0.06,
+  "recommendedVolume": 0.55,
+  "schema": "tactilemac.pack",
+  "schemaVersion": 1
+}
