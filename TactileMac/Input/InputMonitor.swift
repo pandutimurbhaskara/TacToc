@@ -33,7 +33,8 @@ final class InputMonitor {
             .leftMouseDown, .leftMouseUp,
             .rightMouseDown, .rightMouseUp,
             .otherMouseDown, .otherMouseUp,
-            .scrollWheel
+            .scrollWheel,
+            .mouseMoved, .leftMouseDragged, .rightMouseDragged, .otherMouseDragged
         ]
         var mask: CGEventMask = 0
         for eventType in eventTypes {
@@ -115,6 +116,8 @@ final class InputMonitor {
             onEvent?(.mouseButton(button: button, isDown: type == .otherMouseDown, timestamp: CACurrentMediaTime()))
         case .scrollWheel:
             processScroll(event: event)
+        case .mouseMoved, .leftMouseDragged, .rightMouseDragged, .otherMouseDragged:
+            onEvent?(.pointerMoved(x: event.location.x, y: event.location.y, timestamp: CACurrentMediaTime()))
         default:
             break
         }

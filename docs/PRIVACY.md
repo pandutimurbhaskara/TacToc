@@ -8,6 +8,7 @@ TactileMac is a local-only utility. It has no network client, telemetry, analyti
 - **Modifier flags** for modifier feedback.
 - **Mouse button number** and **scroll delta/phase** for trackpad feedback.
 - **Secure Event Input status** to pause feedback.
+- **Pointer movement and scroll deltas** to generate local material pulses.
 - **Settings and pack selections**, stored locally.
 
 ## What is not processed or stored
@@ -24,6 +25,10 @@ TactileMac is a local-only utility. It has no network client, telemetry, analyti
 - **Accessibility** is not requested and not used. The app does not inspect UI elements or window contents. The Permissions page reports the system value for transparency only.
 - **Secure Event Input** is respected. TactileMac never tries to bypass it; it drops feedback while active and says so.
 - No microphone, screen recording, contacts, calendar, location, or automation permission is requested.
+
+## Haptic adapter
+
+The experimental enhanced path loads Apple's private `MultitouchSupport` framework locally to drive the trackpad actuator. It does not send data anywhere and falls back to public AppKit. It is the only private framework used.
 
 ## Local files
 

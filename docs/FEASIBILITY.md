@@ -14,7 +14,7 @@ Testing environment:
 | Capability | Status | Evidence |
 | --- | --- | --- |
 | Native SwiftUI app builds and launches as a full window | Verified | Debug and Release builds succeeded; UI tests launched the window; window registered at 1280×794. |
-| Three-column UI, navigation, settings panels | Verified | 7 UI tests: window, all nine pages, permission guidance, profile selection, toggle persistence, sound-pack import flow, pack list. |
+| Three-column UI, navigation, settings panels | Verified | 8 UI tests: window, all nine pages, permission guidance, profile selection, toggle persistence, sound-pack import flow, pack list. |
 | Settings persist across relaunch | Verified | UI test toggled keyboard sounds off, relaunched, observed off. |
 | AudioQueue engine starts, accepts a decoded WAV, mixes it, and rebuilds | Verified | `AudioEngineTests`; event-to-first-mix 2.6–5.1 ms; reported output latency 14.4 ms. |
 | Ogg Vorbis file decodes to PCM | Verified | Real 51.7 s stereo 44.1 kHz legacy pack OGG; `AVAudioFile` frame count 2,280,385. |
@@ -28,7 +28,9 @@ Testing environment:
 | Import preserves source `config.json`; writes normalized manifest/provenance | Verified | `ImportServiceTests`; UI import test. |
 | Zip import with nested pack root | Verified | Unit test using `ditto`-created zip. |
 | Haptic-capable trackpad detection via public IORegistry | Verified | `AppleMultitouchDevice` reports `ActuationSupported=1`, `ForceSupported=1`, `TrackpadEmbedded=1`. |
-| Public haptic API object is available | Verified | `NSHapticFeedbackManager.defaultPerformer` instantiated on this machine. |
+| Public haptic API object is available | Verified | A standalone 10-pulse public sequence was felt on this hardware. |
+| Private actuator opens and actuates | Verified via probe and Release build | IDs 3/4/6 were felt; repeated pulses on one handle worked; the Release app logged `private actuator available for 1 device(s)`. |
+| Material UI and coordinator pulses | Implemented and unit/UI tested | 62 unit tests and 8 UI tests pass; human material-feel test remains. |
 | Release build universal arm64+x86_64, hardened runtime, DMG | Verified | `lipo -archs` = `x86_64 arm64`; `codesign` Runtime Version 15.5.0; DMG created. |
 | Ad-hoc signing only; not notarized | Verified | `codesign`: `Signature=adhoc`, `TeamIdentifier=not set`; `spctl` rejects DMG with `no usable signature`. |
 
@@ -40,7 +42,7 @@ Testing environment:
 | Audible keyboard/trackpad sounds | Not verified by ear | The engine is tested to mix and output; no human listening test was performed. |
 | Physical keyboard press/release behavior and rapid typing | Not verified | Same permission limitation. |
 | Real trackpad click/scroll event delivery | Not verified | Requires granted Input Monitoring and human interaction; not performed. |
-| Physical haptic sensation | Not verified | Software cannot detect whether a person felt the actuator; no in-person test was performed. |
+| Physical material sensation | Not yet verified in the app | The probe verified public and private pulses, but the six material rhythms have not yet been judged in the final app. |
 | External Magic Trackpad haptics | Not verified | No external trackpad was available for testing. |
 | Secure Event Input behavior at a real password prompt | Not verified | The status API is implemented and polled; no protected prompt was exercised. |
 | Output-device switching during playback with real headphones/Bluetooth | Not verified | Queue rebuild is implemented and unit-tested by calling `rebuild()`, not with a live device swap. |
@@ -49,7 +51,7 @@ Testing environment:
 
 ## Deliberately not implemented / not claimed
 
-- No private `MultitouchSupport` actuator access. Public AppKit haptics only. Research is documented; no private code is in the production path.
+- Private `MultitouchSupport` actuator access exists only in the isolated, experimental enhanced-haptics path, with automatic public fallback. A standalone probe confirmed public sequences and private IDs 3/4/6 are felt on this hardware, and the handle is reusable. Material integration still requires an in-person feel test.
 - No haptic intensity slider. Public AppKit exposes three patterns, not arbitrary strength.
 - No claim that public APIs expose physical touch count, position, pressure, force stages, or arbitrary gestures. Trackpad audio is limited to button-down and precise scroll.
 - No built-in trackpad-vs-mouse click attribution. Click audio may play for any pointing device.

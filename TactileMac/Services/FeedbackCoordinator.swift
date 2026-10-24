@@ -1,4 +1,5 @@
 import Carbon
+import CoreGraphics
 import Foundation
 import QuartzCore
 
@@ -26,8 +27,11 @@ final class FeedbackCoordinator {
         var hapticsEnabled = true
         var hapticOnKeyboard = false
         var hapticOnTrackpadClicks = true
-        var hapticOnScroll = false
-        var hapticPattern: HapticPatternName = .generic
+        var hapticOnScroll = true
+        var hapticOnPointerMovement = true
+        var enhancedHaptics = true
+        var hapticMaterial: HapticMaterialName = .felt
+        var hapticIntensity = 0.6
         var volumes = (keyboard: Float(0.65), trackpad: Float(0.55))
     }
 
@@ -38,9 +42,13 @@ final class FeedbackCoordinator {
     private var pressedKeys = Set<Int64>()
     private var lastClickTimes: [MouseButtonName: TimeInterval] = [:]
     private var scrollAccumulator: Double = 0
+    private var scrollHapticAccumulator: Double = 0
     private var scrollDirection: String?
     private var lastScrollSound: TimeInterval = 0
     private var lastScrollHaptic: TimeInterval = 0
+    private var lastPointerPoint: CGPoint?
+    private var pointerAccumulator: Double = 0
+    private var lastPointerPulse: TimeInterval = 0
     private var secureInputProvider: () -> Bool
     private var clock: () -> TimeInterval
 
@@ -75,9 +83,14 @@ final class FeedbackCoordinator {
             hapticOnKeyboard: settings.hapticOnKeyboard,
             hapticOnTrackpadClicks: settings.hapticOnTrackpadClicks,
             hapticOnScroll: settings.hapticOnScroll,
-            hapticPattern: settings.hapticPattern,
+            hapticOnPointerMovement: settings.hapticOnPointerMovement,
+            enhancedHaptics: settings.enhancedHaptics,
+            hapticMaterial: settings.hapticMaterial,
+            hapticIntensity: settings.hapticIntensity,
             volumes: (Float(settings.keyboardVolume), Float(settings.trackpadVolume))
         )
+        lastPointerPoint = nil
+        pointerAccumulator = 0
         lock.unlock()
         audio?.setVolumes(keyboard: Float(settings.keyboardVolume), trackpad: Float(settings.trackpadVolume))
     }
@@ -94,6 +107,8 @@ final class FeedbackCoordinator {
             return handleMouse(button: button, isDown: isDown, timestamp: timestamp)
         case .scroll(let deltaY, let isPrecise, let isMomentum, let timestamp):
             return handleScroll(deltaY: deltaY, isPrecise: isPrecise, isMomentum: isMomentum, timestamp: timestamp)
+        case .pointerMoved(let x, let y, let timestamp):
+            return handlePointerMoved(x: x, y: y, timestamp: timestamp)
         }
     }
 
@@ -123,10 +138,9 @@ final class FeedbackCoordinator {
                 return FeedbackResult(dropped: true, reason: "Key up without a matching down")
             }
         }
-        let telemetrySuppressed = secureInputProvider()
         lock.unlock()
 
-        if telemetrySuppressed { return FeedbackResult(dropped: true, reason: "Secure Event Input is active") }
+        if secureInputProvider() { return FeedbackResult(dropped: true, reason: "Secure Event Input is active") }
 
         let wantsAudio = cfg.keyboardEnabled && (isDown || cfg.playKeyUpSounds)
         let wantsHaptic = isDown && cfg.hapticsEnabled && cfg.hapticOnKeyboard
@@ -135,7 +149,7 @@ final class FeedbackCoordinator {
             result.soundPlayed = audio?.play(source: .keyboard, eventKeys: keys, pitchVariation: cfg.pitchVariation) ?? false
         }
         if wantsHaptic {
-            haptics?.tick(cfg.hapticPattern)
+            pulseHaptic(cfg)
             result.hapticPlayed = true
         }
         if !wantsAudio && !wantsHaptic { result.dropped = true }
@@ -157,7 +171,7 @@ final class FeedbackCoordinator {
             result.soundPlayed = audio?.play(source: .keyboard, eventKeys: keys, pitchVariation: cfg.pitchVariation) ?? false
         }
         if isDown && cfg.hapticsEnabled && cfg.hapticOnKeyboard {
-            haptics?.tick(cfg.hapticPattern)
+            pulseHaptic(cfg)
             result.hapticPlayed = true
         }
         if !wantsAudio && !result.hapticPlayed { result.dropped = true }
@@ -183,7 +197,7 @@ final class FeedbackCoordinator {
             result.soundPlayed = audio?.play(source: .trackpad, eventKeys: PackEvent.click(button), pitchVariation: cfg.pitchVariation) ?? false
         }
         if cfg.hapticsEnabled && cfg.hapticOnTrackpadClicks {
-            haptics?.tick(cfg.hapticPattern)
+            pulseHaptic(cfg)
             result.hapticPlayed = true
         }
         if !result.soundPlayed && !result.hapticPlayed { result.dropped = true }
@@ -202,38 +216,104 @@ final class FeedbackCoordinator {
             lock.unlock()
             return FeedbackResult(dropped: true, reason: "Momentum scroll ignored")
         }
+
         let direction = deltaY > 0 ? "up" : "down"
         if scrollDirection != direction {
             scrollDirection = direction
             scrollAccumulator = 0
+            scrollHapticAccumulator = 0
         }
-        let stride = isPrecise ? 8.0 : 1.0
-        scrollAccumulator += abs(deltaY)
-        if scrollAccumulator < stride {
-            lock.unlock()
-            return FeedbackResult(dropped: true, reason: "Scroll accumulator below threshold")
+
+        let magnitude = abs(deltaY)
+        let soundStride = isPrecise ? 8.0 : 1.0
+        scrollAccumulator += magnitude
+        let soundDue = scrollAccumulator >= soundStride && timestamp - lastScrollSound >= cfg.scrollMinimumInterval
+        if soundDue {
+            lastScrollSound = timestamp
+            scrollAccumulator = 0
+        } else {
+            scrollAccumulator = min(scrollAccumulator, soundStride)
         }
-        if timestamp - lastScrollSound < cfg.scrollMinimumInterval {
-            scrollAccumulator = min(scrollAccumulator, stride)
-            lock.unlock()
-            return FeedbackResult(dropped: true, reason: "Scroll rate limited")
+
+        let material = cfg.hapticMaterial
+        scrollHapticAccumulator += magnitude
+        let hapticDue = cfg.hapticsEnabled
+            && cfg.hapticOnScroll
+            && scrollHapticAccumulator >= material.scrollSpacing
+            && timestamp - lastScrollHaptic >= material.minimumInterval
+        if hapticDue {
+            lastScrollHaptic = timestamp
+            scrollHapticAccumulator = 0
+        } else {
+            scrollHapticAccumulator = min(scrollHapticAccumulator, material.scrollSpacing)
         }
-        lastScrollSound = timestamp
-        scrollAccumulator = 0
-        let canHaptic = cfg.hapticsEnabled && cfg.hapticOnScroll && timestamp - lastScrollHaptic >= 0.12
-        if canHaptic { lastScrollHaptic = timestamp }
         lock.unlock()
 
+        if !soundDue && !hapticDue {
+            return FeedbackResult(dropped: true, reason: "Scroll below thresholds")
+        }
+
         var result = FeedbackResult()
-        if cfg.trackpadEnabled && cfg.trackpadScrollEnabled {
+        if soundDue && cfg.trackpadEnabled && cfg.trackpadScrollEnabled {
             result.soundPlayed = audio?.play(source: .trackpad, eventKeys: PackEvent.scroll(direction: direction), pitchVariation: cfg.pitchVariation) ?? false
         }
-        if canHaptic {
-            haptics?.tick(cfg.hapticPattern)
+        if hapticDue {
+            pulseHaptic(cfg)
             result.hapticPlayed = true
         }
         if !result.soundPlayed && !result.hapticPlayed { result.dropped = true }
         return result
+    }
+
+    private func handlePointerMoved(x: Double, y: Double, timestamp: TimeInterval) -> FeedbackResult {
+        lock.lock()
+        let cfg = config
+        guard cfg.hapticsEnabled && cfg.hapticOnPointerMovement else {
+            lock.unlock()
+            return FeedbackResult(dropped: true, reason: "Pointer haptics disabled")
+        }
+        let point = CGPoint(x: x, y: y)
+        guard let previous = lastPointerPoint else {
+            lastPointerPoint = point
+            lock.unlock()
+            return FeedbackResult(dropped: true, reason: "Pointer origin")
+        }
+        lastPointerPoint = point
+        let distance = hypot(point.x - previous.x, point.y - previous.y)
+        // Cursor teleports (display switches, app transitions) should not turn
+        // into a burst of actuator pulses.
+        guard distance > 0.05, distance < 160 else {
+            pointerAccumulator = 0
+            lock.unlock()
+            return FeedbackResult(dropped: true, reason: "Pointer jump")
+        }
+        pointerAccumulator += distance
+        let material = cfg.hapticMaterial
+        let jitter = material.jitter > 0 ? Double.random(in: -material.jitter...material.jitter) : 0
+        let threshold = max(1, material.spacing * (1 + jitter))
+        guard pointerAccumulator >= threshold else {
+            lock.unlock()
+            return FeedbackResult(dropped: true, reason: "Pointer below threshold")
+        }
+        guard timestamp - lastPointerPulse >= material.minimumInterval else {
+            pointerAccumulator = min(pointerAccumulator, threshold)
+            lock.unlock()
+            return FeedbackResult(dropped: true, reason: "Pointer rate limited")
+        }
+        pointerAccumulator = 0
+        lastPointerPulse = timestamp
+        lock.unlock()
+
+        pulseHaptic(cfg)
+        return FeedbackResult(hapticPlayed: true)
+    }
+
+    private func pulseHaptic(_ cfg: Config) {
+        haptics?.pulse(
+            material: cfg.hapticMaterial,
+            intensity: cfg.hapticIntensity,
+            useEnhanced: cfg.enhancedHaptics
+        )
     }
 
     func resetTransientState() {
@@ -241,7 +321,11 @@ final class FeedbackCoordinator {
         pressedKeys.removeAll()
         lastClickTimes.removeAll()
         scrollAccumulator = 0
+        scrollHapticAccumulator = 0
         scrollDirection = nil
+        lastPointerPoint = nil
+        pointerAccumulator = 0
+        lastPointerPulse = 0
         lock.unlock()
     }
 }

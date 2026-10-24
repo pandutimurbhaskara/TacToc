@@ -4,7 +4,6 @@ import SwiftUI
 struct AboutPage: View {
     @EnvironmentObject private var model: AppModel
 
-
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             PageHeader(
@@ -30,7 +29,7 @@ struct AboutPage: View {
                         HStack(spacing: 8) {
                             StatusPill(text: "SwiftUI", color: Theme.purple)
                             StatusPill(text: "AudioQueue", color: Theme.purple)
-                            StatusPill(text: "Public haptics", color: Theme.teal)
+                            StatusPill(text: "Material haptics", color: Theme.teal)
                             StatusPill(text: "No telemetry", color: Theme.teal)
                         }
                         .padding(.top, 2)

@@ -161,12 +161,56 @@ final class CoordinatorTests: XCTestCase {
 
     func testScrollHapticsAreRateLimitedSeparately() {
         settings.hapticOnScroll = true
+        settings.hapticMaterial = .softGrid
         coordinator.apply(settings)
         _ = coordinator.handle(.scroll(deltaY: 9, isPrecise: true, isMomentum: false, timestamp: 20.0))
         _ = coordinator.handle(.scroll(deltaY: 9, isPrecise: true, isMomentum: false, timestamp: 20.1))
-        XCTAssertEqual(haptics.ticks.count, 1)
-        _ = coordinator.handle(.scroll(deltaY: 9, isPrecise: true, isMomentum: false, timestamp: 20.3))
         XCTAssertEqual(haptics.ticks.count, 2)
+        _ = coordinator.handle(.scroll(deltaY: 9, isPrecise: true, isMomentum: false, timestamp: 20.3))
+        XCTAssertEqual(haptics.ticks.count, 3)
+    }
+
+    func testPointerMovementProducesMaterialPulsesAndRateLimits() {
+        settings.hapticMaterial = .softGrid
+        settings.hapticOnPointerMovement = true
+        settings.hapticsEnabled = true
+        coordinator.apply(settings)
+
+        _ = coordinator.handle(.pointerMoved(x: 0, y: 0, timestamp: 1.0))
+        XCTAssertEqual(haptics.ticks.count, 0)
+
+        let first = coordinator.handle(.pointerMoved(x: 30, y: 0, timestamp: 1.1))
+        XCTAssertTrue(first.hapticPlayed)
+        XCTAssertEqual(haptics.ticks.count, 1)
+
+        let tooSoon = coordinator.handle(.pointerMoved(x: 60, y: 0, timestamp: 1.12))
+        XCTAssertTrue(tooSoon.dropped)
+        XCTAssertEqual(haptics.ticks.count, 1)
+
+        let later = coordinator.handle(.pointerMoved(x: 90, y: 0, timestamp: 1.2))
+        XCTAssertTrue(later.hapticPlayed)
+        XCTAssertEqual(haptics.ticks.count, 2)
+    }
+
+    func testPointerMovementCanBeDisabled() {
+        settings.hapticOnPointerMovement = false
+        coordinator.apply(settings)
+        _ = coordinator.handle(.pointerMoved(x: 0, y: 0, timestamp: 1.0))
+        let result = coordinator.handle(.pointerMoved(x: 40, y: 0, timestamp: 1.1))
+        XCTAssertTrue(result.dropped)
+        XCTAssertEqual(haptics.ticks.count, 0)
+    }
+
+    func testScrollHapticsCanRunWithTrackpadAudioDisabled() {
+        settings.trackpadEnabled = false
+        settings.trackpadScrollEnabled = false
+        settings.hapticOnScroll = true
+        settings.hapticMaterial = .softGrid
+        coordinator.apply(settings)
+        let result = coordinator.handle(.scroll(deltaY: 9, isPrecise: true, isMomentum: false, timestamp: 30.0))
+        XCTAssertFalse(result.soundPlayed)
+        XCTAssertTrue(result.hapticPlayed)
+        XCTAssertEqual(haptics.ticks.count, 1)
     }
 
     func testResetClearsPressedState() {

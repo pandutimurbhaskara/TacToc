@@ -28,6 +28,7 @@
 		68E17C60951277D7DB60833E /* KeyCodeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED10EC28A03B1FB306E1A04F /* KeyCodeMap.swift */; };
 		6B456945FD53E1BBF942A803 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A76DE60679F547F8F923AB /* AudioEngine.swift */; };
 		70AF24CB6EF0978083AE92B8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD4FF77CA46481004E6404F /* Theme.swift */; };
+		71AAE2781CB03A9C37C7EB03 /* HapticMaterialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0DE991C14C620B959B6F4 /* HapticMaterialTests.swift */; };
 		73AC697CA9878A3C58C97138 /* InputMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F1D0E4E413AB2E92DEE92 /* InputMonitor.swift */; };
 		792C41BD618FCAECA90C8CB3 /* Fixtures in Resources */ = {isa = PBXBuildFile; fileRef = 60D51DA56A011AEF66A8516E /* Fixtures */; };
 		79EFC37C7A997D646C32074E /* PackValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AAB2C56EF82DE3FBBE054B /* PackValidationTests.swift */; };
@@ -51,9 +52,11 @@
 		B98D8946066D9A216F48FDE2 /* CapabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7621BFAE72C983528DA000A4 /* CapabilityService.swift */; };
 		BBF56F9D3773991BE39AF288 /* ProfilesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAA294CA27A16DAFC2372F /* ProfilesPage.swift */; };
 		BE2CF22CBC1A6B058A732BF7 /* AdvancedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CA6A3FB44C51849744B84E /* AdvancedPage.swift */; };
+		D2536A80E27E7606541EAE14 /* HapticMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A44306AF3F01EA47B7B640 /* HapticMaterial.swift */; };
 		D4B8B743BAE8BD90A8599E2D /* TactileMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456465B5B5E5F31B39FEB739 /* TactileMacApp.swift */; };
 		DAE39EE1D0CC79D040D4FE74 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331AAAFAB8895D03FC6238A /* KeyboardView.swift */; };
 		DFFB68339A5E8A4ECCC882C1 /* PackValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA29CBC2C8DF941B2B474619 /* PackValidator.swift */; };
+		E54669A162483E39E21D27EF /* PrivateActuatorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5339DBD3DD9B6F535E2365 /* PrivateActuatorEngine.swift */; };
 		EA1BFF4282D6CDE1BD7F4E8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749F3003CED0C66E899EB567 /* Assets.xcassets */; };
 		F05AEC815911D511719064D2 /* LegacyKeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8B8388CC9BE1B16732527 /* LegacyKeyMap.swift */; };
 		F446BD3246F54B865C2FE1EF /* SmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1928F49BA8F4AE819E649BD /* SmokeTests.swift */; };
@@ -112,6 +115,7 @@
 		7C7C85D762C407664793B5D7 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		7E503CFCF4649E6575D4A730 /* KeyboardPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPage.swift; sourceTree = "<group>"; };
 		865BBB79B5E21986AF099D25 /* NavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTests.swift; sourceTree = "<group>"; };
+		88A44306AF3F01EA47B7B640 /* HapticMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticMaterial.swift; sourceTree = "<group>"; };
 		89E536FA91D543B3CF85273D /* HapticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticEngine.swift; sourceTree = "<group>"; };
 		8AD902FF64DFF0ECAE355A9E /* TactileMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TactileMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDEBE72A0C4ABCEEB7B29F4 /* AboutPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPage.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 		BA29CBC2C8DF941B2B474619 /* PackValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackValidator.swift; sourceTree = "<group>"; };
 		C197C5EC3E939E76F72AF369 /* SoundPacksPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPacksPage.swift; sourceTree = "<group>"; };
 		C23A035DBF31B678E1FABB21 /* TactileMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TactileMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB5339DBD3DD9B6F535E2365 /* PrivateActuatorEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateActuatorEngine.swift; sourceTree = "<group>"; };
 		CC718B00DFEAB595659D6978 /* AudioEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngineTests.swift; sourceTree = "<group>"; };
 		D5A7E807A777CD3DA3A09B2E /* Notices */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Notices; path = TactileMac/Resources/Notices; sourceTree = SOURCE_ROOT; };
 		D691CA1300738976DC1A72DF /* LegacyPackImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyPackImporter.swift; sourceTree = "<group>"; };
@@ -138,15 +143,25 @@
 		E6DC6C2ED32E65948B0771B3 /* PackImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackImportService.swift; sourceTree = "<group>"; };
 		EAC1E4275E10FF348620BCE5 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		ED10EC28A03B1FB306E1A04F /* KeyCodeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCodeMap.swift; sourceTree = "<group>"; };
+		F0A0DE991C14C620B959B6F4 /* HapticMaterialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticMaterialTests.swift; sourceTree = "<group>"; };
 		F144F74323E8D7284F4CE3B4 /* ImportServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportServiceTests.swift; sourceTree = "<group>"; };
 		F684E4A008F625A75347164A /* AudioDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDecodeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		0810F2D203AF4CAE9103341B /* Experimental */ = {
+			isa = PBXGroup;
+			children = (
+				CB5339DBD3DD9B6F535E2365 /* PrivateActuatorEngine.swift */,
+			);
+			path = Experimental;
+			sourceTree = "<group>";
+		};
 		286CB19B13C32411A87311E7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A78BC8E3150737A7052826F4 /* AppSettings.swift */,
+				88A44306AF3F01EA47B7B640 /* HapticMaterial.swift */,
 				DC686886BD2F70BED3C1EE69 /* InputEvent.swift */,
 				ED10EC28A03B1FB306E1A04F /* KeyCodeMap.swift */,
 				0C71621E39A3C48E533AD315 /* SoundPack.swift */,
@@ -194,6 +209,7 @@
 		6EDF8EB1F401ED6836E66D42 /* Haptics */ = {
 			isa = PBXGroup;
 			children = (
+				0810F2D203AF4CAE9103341B /* Experimental */,
 				89E536FA91D543B3CF85273D /* HapticEngine.swift */,
 			);
 			path = Haptics;
@@ -230,6 +246,7 @@
 				DB3D7BDCF5E92E36A16D54FC /* BuiltInPackTests.swift */,
 				E0BCD3C913C66F2F6081298D /* CoordinatorTests.swift */,
 				60D51DA56A011AEF66A8516E /* Fixtures */,
+				F0A0DE991C14C620B959B6F4 /* HapticMaterialTests.swift */,
 				F144F74323E8D7284F4CE3B4 /* ImportServiceTests.swift */,
 				B81859B8497C4CB8B2C24E67 /* KeyMappingTests.swift */,
 				B050B548E64600C73499AECD /* LegacyPackImporterTests.swift */,
@@ -483,6 +500,7 @@
 				B98D8946066D9A216F48FDE2 /* CapabilityService.swift in Sources */,
 				4706370D7221E549DC325D76 /* FeedbackCoordinator.swift in Sources */,
 				B90FC77B32F9A68151FB580C /* HapticEngine.swift in Sources */,
+				D2536A80E27E7606541EAE14 /* HapticMaterial.swift in Sources */,
 				44A3859A2B2212D3A435CEDB /* HapticsPage.swift in Sources */,
 				AD2F3A717962E68A04BBD232 /* InputEvent.swift in Sources */,
 				73AC697CA9878A3C58C97138 /* InputMonitor.swift in Sources */,
@@ -499,6 +517,7 @@
 				DFFB68339A5E8A4ECCC882C1 /* PackValidator.swift in Sources */,
 				08BED3990F49455562CE275F /* PermissionService.swift in Sources */,
 				3184FF76FC990B18F49FB113 /* PermissionsPage.swift in Sources */,
+				E54669A162483E39E21D27EF /* PrivateActuatorEngine.swift in Sources */,
 				BBF56F9D3773991BE39AF288 /* ProfilesPage.swift in Sources */,
 				44268059245E143BDE9E12DC /* RootView.swift in Sources */,
 				462F510B6320399D13BEC52F /* SafePath.swift in Sources */,
@@ -521,6 +540,7 @@
 				819D1890359ACB58715A9B99 /* AudioEngineTests.swift in Sources */,
 				888CBF13AE9953DF366FA2CC /* BuiltInPackTests.swift in Sources */,
 				35E4A1A95A1BE75D99294DB2 /* CoordinatorTests.swift in Sources */,
+				71AAE2781CB03A9C37C7EB03 /* HapticMaterialTests.swift in Sources */,
 				21AE9CCA0EC08C23F21FD258 /* ImportServiceTests.swift in Sources */,
 				FCD17AAC542789E37E9FD91A /* KeyMappingTests.swift in Sources */,
 				844F8B475C0735CC69E223E5 /* LegacyPackImporterTests.swift in Sources */,
@@ -644,7 +664,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -659,7 +679,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = TactileMac;
@@ -707,7 +727,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -728,7 +748,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

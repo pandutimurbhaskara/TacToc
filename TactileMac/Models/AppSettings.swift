@@ -25,7 +25,11 @@ struct AppSettings: Codable, Equatable {
     var hapticsEnabled: Bool = true
     var hapticOnKeyboard: Bool = false
     var hapticOnTrackpadClicks: Bool = true
-    var hapticOnScroll: Bool = false
+    var hapticOnScroll: Bool = true
+    var hapticOnPointerMovement: Bool = true
+    var enhancedHaptics: Bool = true
+    var hapticMaterial: HapticMaterialName = .felt
+    var hapticIntensity: Double = 0.6
     var hapticPattern: HapticPatternName = .generic
 
     var pitchVariation: Double = 0.08
@@ -38,7 +42,8 @@ struct AppSettings: Codable, Equatable {
         case keyboardEnabled, keyboardVolume, playKeyUpSounds, playModifierSounds, playKeyRepeatSounds, keyboardPackID
         case trackpadEnabled, trackpadVolume, trackpadClicksEnabled, trackpadScrollEnabled, trackpadPackID
         case preciseScrollOnly, includeMomentumScroll, scrollMinimumIntervalMs, clickDebounceMs
-        case hapticsEnabled, hapticOnKeyboard, hapticOnTrackpadClicks, hapticOnScroll, hapticPattern
+        case hapticsEnabled, hapticOnKeyboard, hapticOnTrackpadClicks, hapticOnScroll
+        case hapticOnPointerMovement, enhancedHaptics, hapticMaterial, hapticIntensity, hapticPattern
         case pitchVariation, audioBufferFrames, showMenuBarExtra, hasSeenPermissionGuidance
     }
 
@@ -67,6 +72,10 @@ struct AppSettings: Codable, Equatable {
         hapticOnKeyboard = try container.decodeIfPresent(Bool.self, forKey: .hapticOnKeyboard) ?? defaults.hapticOnKeyboard
         hapticOnTrackpadClicks = try container.decodeIfPresent(Bool.self, forKey: .hapticOnTrackpadClicks) ?? defaults.hapticOnTrackpadClicks
         hapticOnScroll = try container.decodeIfPresent(Bool.self, forKey: .hapticOnScroll) ?? defaults.hapticOnScroll
+        hapticOnPointerMovement = try container.decodeIfPresent(Bool.self, forKey: .hapticOnPointerMovement) ?? defaults.hapticOnPointerMovement
+        enhancedHaptics = try container.decodeIfPresent(Bool.self, forKey: .enhancedHaptics) ?? defaults.enhancedHaptics
+        hapticMaterial = try container.decodeIfPresent(HapticMaterialName.self, forKey: .hapticMaterial) ?? defaults.hapticMaterial
+        hapticIntensity = try container.decodeIfPresent(Double.self, forKey: .hapticIntensity) ?? defaults.hapticIntensity
         hapticPattern = try container.decodeIfPresent(HapticPatternName.self, forKey: .hapticPattern) ?? defaults.hapticPattern
         pitchVariation = try container.decodeIfPresent(Double.self, forKey: .pitchVariation) ?? defaults.pitchVariation
         audioBufferFrames = try container.decodeIfPresent(Int.self, forKey: .audioBufferFrames) ?? defaults.audioBufferFrames
@@ -80,6 +89,7 @@ struct AppSettings: Codable, Equatable {
         trackpadVolume = min(max(trackpadVolume, 0), 1)
         scrollMinimumIntervalMs = min(max(scrollMinimumIntervalMs, 16), 250)
         clickDebounceMs = min(max(clickDebounceMs, 10), 250)
+        hapticIntensity = min(max(hapticIntensity, 0), 1)
         pitchVariation = min(max(pitchVariation, 0), 2)
         if ![128, 256, 512, 1024].contains(audioBufferFrames) { audioBufferFrames = 256 }
     }

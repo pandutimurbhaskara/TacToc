@@ -104,6 +104,7 @@ final class AppModel: ObservableObject {
     private var packLoadGeneration = 0
     private var inputStartBlocked = false
     private var lastRecordTime: TimeInterval = 0
+    private var lastPointerRecordTime: TimeInterval = 0
     private let isUITesting = ProcessInfo.processInfo.arguments.contains("--ui-testing")
 
     init(paths: AppPaths = AppPaths()) {
@@ -181,7 +182,8 @@ final class AppModel: ObservableObject {
             || previous?.hapticsEnabled != settings.hapticsEnabled
             || previous?.hapticOnKeyboard != settings.hapticOnKeyboard
             || previous?.hapticOnTrackpadClicks != settings.hapticOnTrackpadClicks
-            || previous?.hapticOnScroll != settings.hapticOnScroll {
+            || previous?.hapticOnScroll != settings.hapticOnScroll
+            || previous?.hapticOnPointerMovement != settings.hapticOnPointerMovement {
             reconcileInputMonitoring()
         }
     }
@@ -347,8 +349,15 @@ final class AppModel: ObservableObject {
     }
 
     func previewHaptic() {
-        haptics.tick(settings.hapticPattern)
+        haptics.previewMaterial(settings.hapticMaterial, intensity: settings.hapticIntensity, useEnhanced: settings.enhancedHaptics)
     }
+
+    func previewMaterial(_ material: HapticMaterialName) {
+        update(\.hapticMaterial, material)
+        haptics.previewMaterial(material, intensity: settings.hapticIntensity, useEnhanced: settings.enhancedHaptics)
+    }
+
+    var enhancedHapticsAvailable: Bool { haptics.isEnhancedAvailable }
 
     // MARK: - Import and removal
 
@@ -425,7 +434,7 @@ final class AppModel: ObservableObject {
     var needsInputMonitoring: Bool {
         settings.keyboardEnabled
             || settings.trackpadEnabled
-            || (settings.hapticsEnabled && (settings.hapticOnKeyboard || settings.hapticOnTrackpadClicks || settings.hapticOnScroll))
+            || (settings.hapticsEnabled && (settings.hapticOnKeyboard || settings.hapticOnTrackpadClicks || settings.hapticOnScroll || settings.hapticOnPointerMovement))
     }
 
     func requestInputMonitoring() {
@@ -459,6 +468,12 @@ final class AppModel: ObservableObject {
             guard let self else { return }
             let result = self.coordinator.handle(event)
             if case .scroll = event, !result.soundPlayed, !result.hapticPlayed { return }
+            if case .pointerMoved = event {
+                guard result.hapticPlayed else { return }
+                let now = CACurrentMediaTime()
+                guard now - self.lastPointerRecordTime >= 0.08 else { return }
+                self.lastPointerRecordTime = now
+            }
             DispatchQueue.main.async { self.record(event: event, result: result) }
         }
         inputMonitor.onError = { [weak self] message in
@@ -588,6 +603,10 @@ final class AppModel: ObservableObject {
             input.trackpadEventCount += 1
             isScroll = true
             if result.soundPlayed { input.lastEvent = .init(kind: .scroll, detail: delta > 0 ? "up" : "down", timestamp: Date()) }
+        case .pointerMoved:
+            input.trackpadEventCount += 1
+            isScroll = false
+            if result.hapticPlayed { input.lastEvent = .init(kind: .pointer, detail: settings.hapticMaterial.title, timestamp: Date()) }
         }
         if result.soundPlayed { input.soundCount += 1 }
         if result.hapticPlayed { input.hapticCount += 1 }
@@ -636,6 +655,8 @@ final class AppModel: ObservableObject {
             "Event tap running: \(permissions.tapRunning)",
             "Secure Event Input: \(permissions.secureInputActive)",
             "Trackpad detected: \(trackpad.detected), actuation reported: \(trackpad.actuationReported), embedded: \(trackpad.embedded)",
+            "Haptic material: \(settings.hapticMaterial.title), intensity: \(String(format: "%.2f", settings.hapticIntensity))",
+            "Enhanced private actuator available: \(enhancedHapticsAvailable), enabled: \(settings.enhancedHaptics)",
             "Audio: \(audioInfo.deviceName), \(Int(audioInfo.sampleRate)) Hz, \(audioInfo.hardwareBufferFrames) frames, estimated output latency \(String(format: "%.1f", audioInfo.computedOutputLatencyMs)) ms",
             "Keyboard pack: \(settings.keyboardPackID)",
             "Trackpad pack: \(settings.trackpadPackID)",

@@ -5,12 +5,12 @@
 `./scripts/make_dmg.sh` builds a universal Release app and a drag-install DMG:
 
 ```
-dist/TactileMac-0.1.0.dmg
-SHA-256: 616768b94576d7f94c0ef3c7d44eabce6c807518d3183eee7792fa5b30c17b2d
-Size: ~3.5 MB
+dist/TactileMac-0.2.0.dmg
+SHA-256: 5a57d3380440d54ba0ec7f6d6d676cd7b52d0d31bfe2abf25e9c4c3bcfc9fbbb
+Size: ~3.6 MB
 Architectures: x86_64 arm64
 Bundle ID: com.tactilemac.app
-Version: 0.1.0 (1)
+Version: 0.2.0 (2)
 Minimum macOS: 14.0
 ```
 
@@ -74,11 +74,11 @@ codesign --verify --deep --strict --verbose=2 \
   build/release/Build/Products/Release/TactileMac.app
 
 # 5. Create the DMG (staging app + Applications symlink), then submit
-xcrun notarytool submit dist/TactileMac-0.1.0.dmg \
+xcrun notarytool submit dist/TactileMac-0.2.0.dmg \
   --keychain-profile "tactilemac-notary" --wait
-xcrun stapler staple dist/TactileMac-0.1.0.dmg
-xcrun stapler validate dist/TactileMac-0.1.0.dmg
-spctl -a -vvv dist/TactileMac-0.1.0.dmg
+xcrun stapler staple dist/TactileMac-0.2.0.dmg
+xcrun stapler validate dist/TactileMac-0.2.0.dmg
+spctl -a -vvv dist/TactileMac-0.2.0.dmg
 ```
 
 Use `xcrun notarytool store-credentials` once to create the keychain profile. Never commit certificates, API keys, app-specific passwords, or keychain profiles.
@@ -90,15 +90,15 @@ The release must be re-signed *after* the final build and before DMG creation; d
 - Bundle ID: `com.tactilemac.app`; changing it resets Input Monitoring approval.
 - Hardened Runtime: yes in Release.
 - App Sandbox: off.
-- No private framework linkage.
+- The Release build contains an isolated experimental private `MultitouchSupport` adapter for material haptics, loaded at runtime with a public fallback. This is not App Store material and must be re-reviewed for Developer ID distribution.
 - No `com.apple.security.*` sandbox entitlements are required by the current implementation.
 - Input Monitoring is a TCC privacy approval, not an entitlement. A Developer ID signature makes the identity stable for that approval.
 
 ## Distribution checklist
 
 - [x] Project builds Debug and Release.
-- [x] 55 unit/integration tests pass.
-- [x] 7 UI tests pass.
+- [x] 62 unit/integration tests pass.
+- [x] 8 UI tests pass.
 - [x] Universal Release binary built.
 - [x] DMG created and SHA-256 recorded.
 - [x] Built-in audio/icon generated and licensed for redistribution.
@@ -118,7 +118,7 @@ Because the current DMG is ad-hoc and not notarized, Gatekeeper rejects it as di
 
 ## Versioning
 
-- Marketing version: `0.1.0`.
+- Marketing version: `0.2.0`.
 - Build: `1`.
 - Native pack schema: `tactilemac.pack` v1.
 - Settings schema: 1.

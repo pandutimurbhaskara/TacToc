@@ -130,6 +130,17 @@ final class NavigationTests: XCTestCase {
         app.terminate()
     }
 
+    func testHapticMaterialSelection() {
+        let app = launch()
+        app.buttons["sidebar.haptics"].click()
+        let pebbled = element(app, "material.pebbled")
+        XCTAssertTrue(pebbled.waitForExistence(timeout: 4))
+        pebbled.click()
+        let selected = app.staticTexts["Pebbled"].firstMatch
+        XCTAssertTrue(selected.waitForExistence(timeout: 3))
+        app.terminate()
+    }
+
     func testSoundPacksPageShowsBuiltInPacks() {
         let app = launch()
         app.buttons["sidebar.soundPacks"].click()

@@ -22,9 +22,10 @@ TactileMac is an original Swift/SwiftUI implementation. It runs as a real resiza
   - Left/right/middle button down, with debounce.
   - Precise scroll deltas, with a scroll accumulator, rate limit, momentum filter, and "precise only" filter.
   - Independent volume and sound pack.
-- **Physical haptics** through the public `NSHapticFeedbackManager` API.
-  - Generic, alignment, and level-change presets; independent keyboard/click/scroll triggers.
-  - No private frameworks and no fake intensity control.
+- **Material haptics** with six selectable materials (Felt, Bouclé, Pebbled, Fine grit, Soft grid, Line grid).
+  - Cursor movement, scrolling, clicks, and optional keyboard pulses use material-shaped cadence, spacing, and strength.
+  - An isolated experimental private actuator provides three strengths; if it cannot open or is disabled, the app falls back to public `NSHapticFeedbackManager` presets and says so.
+  - No arbitrary-waveform or continuous-vibration claim; intensity is a mapping to weak/medium/strong presets.
 - **Sound-pack system**:
   - Native versioned JSON schema (`tactilemac.pack` v1).
   - Legacy V1/V2 and extended V2 importers.
@@ -71,7 +72,7 @@ xcodebuild -project TactileMac.xcodeproj -scheme TactileMac \
   test -only-testing:TactileMacUITests -parallel-testing-enabled NO
 ```
 
-Current results: **55 unit/integration tests and 7 UI tests pass**. See `docs/TESTING.md` for the exact environment, test list, audio measurement, and hardware-test status.
+Current results: **62 unit/integration tests and 8 UI tests pass**. See `docs/TESTING.md` for the exact environment, test list, audio measurement, and hardware-test status.
 
 ## Permissions
 
@@ -85,7 +86,7 @@ TactileMac does not request Accessibility access, does not inspect the accessibi
 
 ## Permissions and hardware reality
 
-- Public haptics may be available on Force Touch trackpads. This machine reports `ActuationSupported=1` through IORegistry, but that is a hardware property, not a promise that you will feel every pattern.
+- Material haptics use an isolated experimental private actuator with a public AppKit fallback. This machine reports `ActuationSupported=1`; the probe and Release build both opened the private actuator. That is still not a promise that every material will feel right to you.
 - Physical haptics, audible output, keyboard event delivery, and trackpad clicks/scrolls were **not** verified by a human in this environment. The automated suite verifies the engine starts, mixes voices, and reports latency; it cannot hear or feel the result.
 - Public APIs cannot reliably distinguish a built-in trackpad click from a mouse click. Click audio may play for a mouse. Contact count, finger position, force stages, and arbitrary gestures are not available through the APIs used here.
 - OGG decoding is performed by the OS. Ogg Vorbis and Ogg Opus were decoded on macOS 15.6.1, but an `.ogg` file is not assumed valid: every referenced file is opened and decoded during import/load, and failures are reported.
@@ -127,7 +128,7 @@ A universal (arm64 + x86_64) Release app and a drag-install DMG are produced by:
 ./scripts/make_dmg.sh
 ```
 
-The artifact in this environment is `dist/TactileMac-0.1.0.dmg` (SHA-256 recorded beside it). It is **ad-hoc signed, hardened runtime, and not Developer ID signed or notarized**. Gatekeeper rejects it (`no usable signature`). No signing identity or notary credentials were present. See `docs/RELEASE.md` for the remaining steps.
+The artifact in this environment is `dist/TactileMac-0.2.0.dmg` (SHA-256 recorded beside it). It is **ad-hoc signed, hardened runtime, and not Developer ID signed or notarized**. The enhanced haptics path uses a private framework behind an experimental toggle; this is not App Store material. Gatekeeper rejects it (`no usable signature`). No signing identity or notary credentials were present. See `docs/RELEASE.md` for the remaining steps.
 
 ## License
 

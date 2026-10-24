@@ -55,7 +55,7 @@ struct OverviewPage: View {
                 featureCard(
                     title: "Haptics",
                     subtitle: model.trackpad.actuationReported ? "Force Touch hardware reported" : "Public AppKit API",
-                    detail: "\(model.settings.hapticPattern.title) preset · no intensity API",
+                    detail: "\(model.settings.hapticMaterial.title) · \(Int(model.settings.hapticIntensity * 100))% · \(model.enhancedHapticsAvailable && model.settings.enhancedHaptics ? "enhanced" : "fallback")",
                     systemImage: "hand.point.up.left.fill",
                     tint: Theme.teal,
                     enabled: model.binding(\.hapticsEnabled),

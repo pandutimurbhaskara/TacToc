@@ -120,7 +120,6 @@ Native packs require all files to exist and validate. Legacy and extended V2 con
 - `NSHapticFeedbackManager.defaultPerformer.perform(_:performanceTime: .now)` with `.generic`, `.alignment`, or `.levelChange`.
 - There is no public intensity parameter, arbitrary waveform API, or capability query. The UI offers a pattern picker and explicitly says intensity is not available.
 - Hardware presence is read from public IORegistry services. On this machine `AppleMultitouchDevice` reports `ActuationSupported=1`, `ForceSupported=1`, `TrackpadEmbedded=1`.
-- No private `MultitouchSupport` symbols are loaded.
 
 ## Persistence and failure behavior
 

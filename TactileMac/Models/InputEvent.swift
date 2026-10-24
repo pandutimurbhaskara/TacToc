@@ -13,6 +13,7 @@ enum NormalizedInputEvent {
     case modifierChanged(code: Int64, isDown: Bool, timestamp: TimeInterval)
     case mouseButton(button: MouseButtonName, isDown: Bool, timestamp: TimeInterval)
     case scroll(deltaY: Double, isPrecise: Bool, isMomentum: Bool, timestamp: TimeInterval)
+    case pointerMoved(x: Double, y: Double, timestamp: TimeInterval)
 }
 
 struct LiveInputSnapshot: Equatable {
@@ -35,6 +36,7 @@ struct LiveInputSnapshot: Equatable {
             case modifier = "Modifier"
             case click = "Click"
             case scroll = "Scroll"
+            case pointer = "Pointer"
         }
         var kind: Kind
         var detail: String
